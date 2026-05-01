@@ -7,9 +7,9 @@
 ## Why use SkillManagerPro?
 As development projects grow, so does the "noise" in your AI context window. **SkillManagerPro** allows you to toggle specific skills in and out of your active environment, ensuring Claude stays focused on the task at hand.
 
-* **Save Tokens:** Only load the skills you need for your current task.
-* **Reduce Context Window:** Strip away unnecessary instructions and files.
-* **Modular Design:** Keep your `skills/` directory organized and clean.
+* **Save Tokens:** Minimizes clutter by keeping your active skill list relevant.
+* **Context Window Optimization:** Auto-restores the skills you need for your current session.
+* **Automated Workflow:** No manual intervention required; the plugin handles skill states based on your session intent.
 
 ## Installation
 
@@ -25,16 +25,17 @@ Add this repository to your Claude Code marketplace to install:
    /plugin install skillmanagerpro-v1@lyricsandbeats
    ```
 
-## Usage
-* skill-enable <name>: Activate a specific skill.
-* skill-disable <name>: Remove a skill from your active context.
+## Included Skills
+This plugin manages the following internal skills:
+
+* restore-skill: Logic to bring back necessary skills into the active session.
+* skills-auto: Automates the management of your skill environment.
 
 ## Local Development
 If you are contributing or testing changes locally:
 ```bash
 claude --plugin-dir ./path/to/SkillManagerPro-V1
 ```
-
 ## Built By
 Gillian (Gill of All Things). 
 I'm not a developer, I'm a builder, so I built this to help other builders and to learn more about development and code, to be the best AI builder I can be.
