@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "name": "Hugging Face / ML",
+      "keywords": ["transformer", "hugging face", "huggingface", "model", "fine-tune", "llm", "training"],
+      "skills": ["hugging-face-cli"]
+    },
+    {
+      "name": "Firebase",
+      "keywords": ["firebase", "firestore", "fireauth", "realtime database", "cloud functions"],
+      "skills": ["firebase"]
+    },
+    {
+      "name": "React / Frontend",
+      "keywords": ["react", "component", "hooks", "nextjs", "next.js", "tailwind", "css", "ui"],
+      "skills": ["react-patterns", "frontend-dev-guidelines"]
+    },
+    {
+      "name": "Database",
+      "keywords": ["postgres", "postgresql", "sql", "database", "migration", "schema", "query", "neon", "supabase"],
+      "skills": ["database", "database-optimizer"]
+    },
+    {
+      "name": "Security",
+      "keywords": ["security", "vulnerability", "auth", "authentication", "jwt", "oauth", "xss", "injection"],
+      "skills": ["security-audit", "web-security-testing"]
+    },
+    {
+      "name": "Testing",
+      "keywords": ["test", "testing", "unit test", "e2e", "playwright", "jest", "vitest", "coverage"],
+      "skills": ["test-driven-development", "e2e-testing"]
+    },
+    {
+      "name": "API / Backend",
+      "keywords": ["api", "endpoint", "rest", "graphql", "express", "fastapi", "backend", "server"],
+      "skills": ["api-design-principles", "api-security-best-practices"]
+    },
+    {
+      "name": "DevOps / Deployment",
+      "keywords": ["docker", "deploy", "ci/cd", "github actions", "kubernetes", "k8s", "pipeline"],
+      "skills": ["vercel-deployment"]
+    }
+  ]
+}

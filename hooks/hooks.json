@@ -1,0 +1,27 @@
+{
+  "description": "Skill Manager Pro lifecycle hooks — auto-suggest archived skills at session start, cleanup temp skills at session end.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/session-start.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/session-end.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

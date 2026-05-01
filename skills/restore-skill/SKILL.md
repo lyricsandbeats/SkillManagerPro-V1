@@ -16,9 +16,9 @@ Restore archived skills from ~/.claude/skills-archive/ back into active use.
 
 ## How It Works
 
-This skill orchestrates the underlying shell script to:
+This skill uses `${CLAUDE_PLUGIN_ROOT}/scripts/restore-skill.sh` to:
 1. Search archived skills by keyword
-2. Show you matching skills
+2. Show matching skills
 3. Restore your selection (temp or permanent)
 4. Confirm restoration
 
@@ -26,13 +26,15 @@ This skill orchestrates the underlying shell script to:
 
 ## Interactive Restore Flow
 
-Ask the user for a keyword to search archived skills (or say "all" to list everything):
+Ask the user for a keyword to search archived skills (or "all" to list everything):
 
 ```bash
-bash ~/.claude/restore-skill.sh --search {keyword}
+bash "${CLAUDE_PLUGIN_ROOT}/scripts/restore-skill.sh" --search {keyword}
+# or list all:
+bash "${CLAUDE_PLUGIN_ROOT}/scripts/restore-skill.sh" --list
 ```
 
-Display the numbered list of matching skills. Then ask:
+Display the matching skills. Ask:
 
 - "Which skill(s) do you want to restore? (enter skill name(s), space-separated)"
 
@@ -40,42 +42,21 @@ Once you have the selection, ask:
 
 - "Restore as temporary (auto re-archive on session exit) or permanent?"
 
-Execute the restore with user's choice:
+Execute the restore:
 
 ```bash
-bash ~/.claude/restore-skill.sh --restore {skill1} {skill2} ... --temp
+bash "${CLAUDE_PLUGIN_ROOT}/scripts/restore-skill.sh" --restore {skill-name} --temp
 # or
-bash ~/.claude/restore-skill.sh --restore {skill1} {skill2} ... --perm
+bash "${CLAUDE_PLUGIN_ROOT}/scripts/restore-skill.sh" --restore {skill-name} --perm
 ```
 
 Show the output and confirm: "Your selected skills are now active in this session."
 
 ---
 
-## Terminal Usage (without this skill)
-
-```bash
-# Search for skills
-bash ~/.claude/restore-skill.sh --search firebase
-
-# Restore specific skills (temp)
-bash ~/.claude/restore-skill.sh --restore firebase --temp
-
-# Restore specific skills (permanent)
-bash ~/.claude/restore-skill.sh --restore firebase --perm
-
-# Interactive mode
-bash ~/.claude/restore-skill.sh
-
-# Clean up temp restorations
-bash ~/.claude/restore-skill.sh --cleanup
-```
-
----
-
 ## Notes
 
-- **Temporary restore**: Skill auto re-archives when you exit Claude. Useful for one-off uses.
-- **Permanent restore**: Skill stays active until you manually archive it.
-- **Search**: Case-insensitive keyword matching. Try partial names (e.g., "fire" finds "firebase", "firestore", etc).
-- **Multiple skills**: You can restore multiple skills at once.
+- **Temporary restore**: Skill auto re-archives on `/archive-skill --cleanup` or session end prompt.
+- **Permanent restore**: Skill stays active until you manually run `/archive-skill`.
+- **Search**: Case-insensitive keyword matching. Try partial names (e.g., "fire" matches "firebase").
+- To archive a skill: use `/archive-skill`.
