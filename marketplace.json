@@ -6,7 +6,8 @@
   },
   "metadata": {
     "description": "Skill Manager Pro - Auto-restores archived skills based on session intent",
-    "version": "2.1.0"
+    "version": "2.1.0",
+    "tags": ["archive", "restore", "skill-management", "config"]
   },
   "plugins": [
     {

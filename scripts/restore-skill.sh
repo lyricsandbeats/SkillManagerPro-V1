@@ -15,6 +15,17 @@ TEMP_TRACKING="$ARCHIVE_DIR/.temp-restored"
 # Ensure dirs exist
 mkdir -p "$SKILLS_DIR" "$ARCHIVE_DIR"
 
+# Update .last-access timestamp for a skill
+update_last_access() {
+  local skill_name="$1"
+  local skill_path="$SKILLS_DIR/$skill_name"
+  if [ -d "$skill_path" ]; then
+    local last_access_file="$skill_path/.last-access"
+    local timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+    echo "{\"timestamp\": \"$timestamp\"}" > "$last_access_file"
+  fi
+}
+
 ACTION=""
 SKILL_NAME=""
 MODE=""
@@ -63,9 +74,11 @@ case "$ACTION" in
     if [ "$MODE" = "temp" ]; then
       cp -r "$SRC" "$DEST"
       echo "$SKILL_NAME" >> "$TEMP_TRACKING"
+      update_last_access "$SKILL_NAME"
       echo "Restored '$SKILL_NAME' temporarily. Will re-archive on cleanup."
     else
       mv "$SRC" "$DEST"
+      update_last_access "$SKILL_NAME"
       echo "Restored '$SKILL_NAME' permanently."
     fi
     ;;
@@ -76,6 +89,8 @@ case "$ACTION" in
     DEST="$ARCHIVE_DIR/$SKILL_NAME"
     if [ ! -d "$SRC" ]; then echo "Error: '$SKILL_NAME' not found in active skills."; exit 1; fi
     mv "$SRC" "$DEST"
+    # Update last-access timestamp in archive
+    update_last_access "$SKILL_NAME"
     # Remove from temp tracking if present
     if [ -f "$TEMP_TRACKING" ]; then
       grep -v "^${SKILL_NAME}$" "$TEMP_TRACKING" > "${TEMP_TRACKING}.tmp" && mv "${TEMP_TRACKING}.tmp" "$TEMP_TRACKING"

@@ -1,6 +1,7 @@
 ---
 name: restore-skill
-description: Restore archived skills from ~/.claude/skills-archive/ back into active use.
+description: Restore an archived skill from ~/.claude/skills-archive/ back into active use.
+aliases: ["restore skill", "bring back", "unarchive", "restore-skill", "find archived skill"]
 user-invocable: true
 ---
 
@@ -12,7 +13,7 @@ Restore archived skills from ~/.claude/skills-archive/ back into active use.
 
 - Need a skill you archived in a previous session
 - Want to browse available archived skills
-- Need temporary access to a skill for this session only
+- Prefer manual control over which skills to restore (vs automatic suggestions with `/skill-manager-auto`)
 
 ## How It Works
 

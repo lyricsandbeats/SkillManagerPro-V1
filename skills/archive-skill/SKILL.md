@@ -1,6 +1,7 @@
 ---
 name: archive-skill
-description: Archive an active skill from ~/.claude/skills/ to ~/.claude/skills-archive/ to reduce noise. Archived skills can be restored later with /restore-skill.
+description: Archive a skill from ~/.claude/skills/ to reduce clutter. Archived skills can be restored later with /restore-skill.
+aliases: ["archive skill", "move to archive", "hide skill", "archive-skill", "clean up skills"]
 user-invocable: true
 ---
 
@@ -36,5 +37,6 @@ bash "${CLAUDE_PLUGIN_ROOT}/scripts/restore-skill.sh" --cleanup
 ## Notes
 
 - Archived skills remain available — they just won't appear in your active skill list
-- Skill Manager Pro suggests relevant archived skills automatically at session start
-- Use `/restore-skill` to bring a skill back
+- When `/skill-manager-auto` is enabled, relevant archived skills are suggested at session start with confirmation prompts
+- Use `/restore-skill` to manually browse and restore archived skills
+- Use `/skill-manager-auto on` to enable automatic suggestions, or `/skill-manager-auto off` to disable them

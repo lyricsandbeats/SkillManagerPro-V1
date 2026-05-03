@@ -8,7 +8,7 @@
   },
   "skills": [
     "./skills/restore-skill",
-    "./skills/skills-auto",
+    "./skills/skill-manager-auto",
     "./skills/archive-skill"
   ]
 }
