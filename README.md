@@ -1,5 +1,5 @@
 # SkillManagerPro
-![Version](https://img.shields.io/badge/version-2.0.0-blue)
+![Version](https://img.shields.io/badge/version-2.1.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ![SkillManagerPro Header Banner](assets/rmbanner.png)
@@ -29,12 +29,12 @@ Add this repository to your Claude Code marketplace to install:
 
 1. **Add the marketplace:**
    ```bash
-   /plugin marketplace add lyricsandbeats/SkillManagerPro-V1
+   /plugin marketplace add gilliansandman/SkillManagerPro
    ```
 
 2. **Install the plugin:**
    ```bash
-   /plugin install skillmanagerpro-v1@lyricsandbeats
+   /plugin install skill-manager-pro@gilliansandman
    ```
 
 ## Included Skills
@@ -46,7 +46,7 @@ This plugin manages the following internal skills:
 ## Local Development
 If you are contributing or testing changes locally:
 ```bash
-claude --plugin-dir ./path/to/SkillManagerPro-V1
+claude --plugin-dir ./path/to/SkillManagerPro
 ```
 ## Built By
 Gillian (Gill of All Things). 
