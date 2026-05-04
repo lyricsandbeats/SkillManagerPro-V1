@@ -29,12 +29,12 @@ Add this repository to your Claude Code marketplace to install:
 
 1. **Add the marketplace:**
    ```bash
-   /plugin marketplace add gilliansandman/SkillManagerPro
+   /plugin marketplace add lyricsandbeats/SkillManagerPro
    ```
 
 2. **Install the plugin:**
    ```bash
-   /plugin install skill-manager-pro@gilliansandman
+   /plugin install skill-manager-pro@lyricsandbeats
    ```
 
 ## Included Skills
@@ -48,6 +48,7 @@ If you are contributing or testing changes locally:
 ```bash
 claude --plugin-dir ./path/to/SkillManagerPro
 ```
+
 ## Built By
 Gillian (Gill of All Things). 
 I'm not a developer, I'm a builder, so I built this to help other builders and to learn more about development and code, to be the best AI builder I can be.
